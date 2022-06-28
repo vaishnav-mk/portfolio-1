@@ -4,7 +4,6 @@ import querystring from 'querystring';
 const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 const REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN;
-console.log(CLIENT_ID, REFRESH_TOKEN)
 enum Endpoints {
   TOKEN = 'https://accounts.spotify.com/api/token',
   TOP_TRACKS = 'https://api.spotify.com/v1/me/top/tracks',
