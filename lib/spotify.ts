@@ -8,6 +8,7 @@ enum Endpoints {
   TOKEN = 'https://accounts.spotify.com/api/token',
   TOP_TRACKS = 'https://api.spotify.com/v1/me/top/tracks',
   NOW_PLAYING = 'https://api.spotify.com/v1/me/player/currently-playing',
+  DEVICES = 'https://api.spotify.com/v1/me/player/devices'
 }
 
 const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64');
@@ -43,6 +44,16 @@ export const getNowPlaying = async () => {
   const { access_token } = await getAccessToken();
 
   return fetch(Endpoints.NOW_PLAYING, {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  });
+};
+
+export const getDevices = async () => {
+  const { access_token } = await getAccessToken();
+
+  return fetch(Endpoints.DEVICES, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
