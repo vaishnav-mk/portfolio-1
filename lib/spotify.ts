@@ -30,6 +30,7 @@ const getAccessToken = async () => {
 
 export const getTopTracks = async () => {
   const { access_token } = await getAccessToken();
+  console.log({ access_token })
 
   return fetch(Endpoints.TOP_TRACKS, {
     headers: {
